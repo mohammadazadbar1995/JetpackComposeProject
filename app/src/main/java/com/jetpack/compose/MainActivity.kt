@@ -61,8 +61,7 @@ class MainActivity : ComponentActivity() {
                         Button(onClick = {
                             scope.launch {
                                 snackbarHostState.showSnackbar(
-                                    message = "This is your message",
-                                    actionLabel = "Do something."
+                                   "Hello $textFieldState"
                                 )
                             }
                         }
