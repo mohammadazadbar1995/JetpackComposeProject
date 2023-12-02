@@ -1,6 +1,5 @@
 package com.jetpack.compose.ui.list_screen
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -9,8 +8,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -18,15 +21,31 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jetpack.compose.ui.list_screen.component.NameItem
 
-val names = listOf("Mohammad", "Ali", "Reza", "Hassan", "Hossein")
+
+data class Person(
+    val name: String,
+    val isSelected: Boolean,
+)
+
 
 
 @Composable
 fun ListScreen(
-    nameList: List<String> = names,
 ) {
 
-    val context = LocalContext.current
+    var persons by rememberSaveable {
+        mutableStateOf(
+            listOf(
+                Person("Mohammad", false),
+                Person("Ali", false),
+                Person("Reza", false),
+                Person("Hassan", false),
+                Person("Hossein", false),
+            )
+        )
+    }
+
+
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -42,13 +61,20 @@ fun ListScreen(
             )
         }
 
-        items(items = nameList) { name ->
-            NameItem(name = name, onNavigateProduct = {
-                Toast.makeText(context, "Hello $name", Toast.LENGTH_SHORT).show()
+        items(items = persons) { person ->
+            NameItem(person = person, onPersonCheckedChange = {
+                persons = persons.map { person ->
+                    if (person.name == it) {
+                        person.copy(isSelected = !person.isSelected)
+                    } else {
+                        person
+                    }
+                }
             })
         }
     }
 }
+
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
