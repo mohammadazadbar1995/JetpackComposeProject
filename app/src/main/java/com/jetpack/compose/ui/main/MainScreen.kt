@@ -1,5 +1,8 @@
 package com.jetpack.compose.ui.main
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -35,8 +38,13 @@ fun MainScreen() {
             mutableStateOf(true)
         }
 
-        if (isVisible)
+        AnimatedVisibility(
+            visible = isVisible,
+            enter = fadeIn(),
+            exit = fadeOut(),
+        ) {
             Text(text = message)
+        }
 
         Spacer(modifier = Modifier.height(32.dp))
 
