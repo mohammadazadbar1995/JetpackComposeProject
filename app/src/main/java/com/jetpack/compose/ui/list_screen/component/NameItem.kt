@@ -20,9 +20,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.jetpack.compose.privew_provider.PersonProvider
+import com.jetpack.compose.privew_provider.ThemePreview
 import com.jetpack.compose.ui.list_screen.Person
 
 @Composable
@@ -32,19 +35,13 @@ fun NameItem(
     onPersonCheckedChange: (personName: String) -> Unit,
 ) {
 
-    var backgroundColor by remember {
-        mutableStateOf(Color.White)
-    }
     Spacer(modifier = Modifier.height(8.dp))
 
 
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .background(color = backgroundColor)
-            .clickable {
-                backgroundColor = Color.Red
-            },
+            .fillMaxWidth(),
+
     ) {
         Spacer(modifier = Modifier.height(4.dp))
 
@@ -73,9 +70,11 @@ fun NameItem(
 
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@ThemePreview
 @Composable
-private fun DefaultPreview() {
-//    NameItem(person = persons[0], onPersonCheckedChange = {})
+private fun DefaultPreview(
+    @PreviewParameter(PersonProvider::class) person: Person,
+) {
+    NameItem(person = person, onPersonCheckedChange = {})
 
 }

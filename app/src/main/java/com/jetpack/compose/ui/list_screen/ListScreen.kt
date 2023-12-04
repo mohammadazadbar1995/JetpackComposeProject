@@ -1,5 +1,6 @@
 package com.jetpack.compose.ui.list_screen
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -19,14 +20,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.jetpack.compose.privew_provider.DevicesPreview
+import com.jetpack.compose.privew_provider.ThemePreview
 import com.jetpack.compose.ui.list_screen.component.NameItem
+import com.jetpack.compose.ui.theme.MyApplicationTheme
 
 
 data class Person(
     val name: String,
     val isSelected: Boolean,
 )
-
 
 
 @Composable
@@ -76,19 +79,17 @@ fun ListScreen(
 }
 
 
-@Preview(showBackground = true, showSystemUi = true)
+@ThemePreview
 @Composable
 fun DefaultPreview() {
-    ListScreen()
-}
-
-@Composable
-fun DefaultPreviewDark() {
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background,
-    ) {
-        ListScreen()
+    MyApplicationTheme {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background,
+        ) {
+            ListScreen()
+        }
 
     }
+
 }
