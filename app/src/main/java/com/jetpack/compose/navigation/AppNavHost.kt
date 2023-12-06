@@ -5,8 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.jetpack.compose.ui.list_screen.ListScreen
-import com.jetpack.compose.ui.profile.ProfileScreen
+import ir.state.list.ListScreen
 
 @Composable
 fun AppNavHost(navController: NavHostController, modifier: Modifier) {
@@ -19,7 +18,7 @@ fun AppNavHost(navController: NavHostController, modifier: Modifier) {
             ListScreen()
         }
         composable(Destination.ProfileScreen.route) {
-            ProfileScreen()
+            ir.state.profile.ProfileScreen()
         }
     }
 }
