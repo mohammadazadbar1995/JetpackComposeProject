@@ -15,4 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "My Application"
 include(":app")
- 
+include(":feature:profile")
+include(":feature:list")
+include(":library:designsystem")
+include(":domain:person")

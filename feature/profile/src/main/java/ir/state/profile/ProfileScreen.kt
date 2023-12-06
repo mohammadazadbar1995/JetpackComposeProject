@@ -1,4 +1,4 @@
-package com.jetpack.compose.ui.profile
+package ir.state.profile
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

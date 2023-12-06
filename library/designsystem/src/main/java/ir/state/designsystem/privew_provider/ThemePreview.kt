@@ -1,4 +1,4 @@
-package com.jetpack.compose.privew_provider
+package ir.state.designsystem.privew_provider
 
 import android.content.res.Configuration
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,8 +19,8 @@ annotation class ThemePreview
 @Preview(locale = "fa", name = "Persian")
 annotation class MultiLanguagePreview
 
-/*@Preview(name = "Phone", device = "spec:width=411dp,height=891dp")
+@Preview(name = "Phone", device = "spec:width=411dp,height=891dp")
 @Preview(name = "Foldable", device = "spec:width=673dp,height=841dp,dpi=480")
 @Preview(name = "Tablet", device = "spec:width=1280dp,height=800dp,dpi=480")
 @Preview(name = "Desktop", device = "spec:width=1920dp,height=1080dp,dpi=480")
-annotation class DevicesPreview*/
+annotation class DevicesPreview

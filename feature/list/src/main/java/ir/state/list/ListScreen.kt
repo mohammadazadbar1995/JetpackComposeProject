@@ -1,4 +1,4 @@
-package com.jetpack.compose.ui.list_screen
+package ir.state.list
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -17,15 +17,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.jetpack.compose.privew_provider.ThemePreview
-import com.jetpack.compose.ui.list_screen.component.NameItem
+import ir.state.list.component.NameItem
 import com.jetpack.compose.ui.theme.MyApplicationTheme
-
-
-data class Person(
-    val name: String,
-    val isSelected: Boolean,
-)
+import ir.state.designsystem.privew_provider.DevicesPreview
+import ir.state.designsystem.privew_provider.ThemePreview
+import ir.state.person.model.Person
 
 
 @Composable
@@ -76,6 +72,7 @@ fun ListScreen(
 
 
 @ThemePreview
+@DevicesPreview
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
