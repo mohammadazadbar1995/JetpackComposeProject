@@ -28,7 +28,6 @@ class MainActivity : ComponentActivity() {
                     Surface(
                         modifier = Modifier.fillMaxSize()
                     ) {
-                        ListScreen()
 
                         val navController = rememberNavController()
                         val backStackEntry = navController.currentBackStackEntryAsState()
