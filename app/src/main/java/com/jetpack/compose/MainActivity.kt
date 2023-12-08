@@ -28,28 +28,28 @@ class MainActivity : ComponentActivity() {
                     Surface(
                         modifier = Modifier.fillMaxSize()
                     ) {
-                        ir.state.list.ListScreen()
+                        ListScreen()
 
                         val navController = rememberNavController()
                         val backStackEntry = navController.currentBackStackEntryAsState()
                         val currentScreenRoute = backStackEntry.value?.destination?.route
 
-                        Scaffold(
-                            bottomBar = {
-                                BottomNavigationBar(
-                                    items = bottomNavItems,
-                                    currentScreenRoute = currentScreenRoute,
-                                    onItemClick = {
-                                        navController.navigate(it.route)
-                                    }
-                                )
-                            }
-                        ) { paddingValues ->
-                            AppNavHost(
-                                navController = navController,
-                                modifier = Modifier.padding(bottom = paddingValues.calculateBottomPadding()),
-                            )
-                        }
+//                        Scaffold(
+//                            bottomBar = {
+//                                BottomNavigationBar(
+//                                    items = bottomNavItems,
+//                                    currentScreenRoute = currentScreenRoute,
+//                                    onItemClick = {
+//                                        navController.navigate(it.route)
+//                                    }
+//                                )
+//                            }
+//                        ) { paddingValues ->
+//                            AppNavHost(
+//                                navController = navController,
+//                                modifier = Modifier.padding(bottom = paddingValues.calculateBottomPadding()),
+//                            )
+//                        }
                     }
                 }
             }
