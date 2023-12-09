@@ -2,13 +2,11 @@ package com.jetpack.compose.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.core.os.bundleOf
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import ir.state.list.ListScreen
-import ir.state.profile.ProfileScreen
-import ir.state.profile.SecondScreen
+import com.example.navigation.Destination
+import com.example.navigation.graph.listGraph
+import com.example.navigation.graph.profileGraph
 
 @Composable
 fun AppNavHost(navController: NavHostController, modifier: Modifier) {
@@ -17,26 +15,10 @@ fun AppNavHost(navController: NavHostController, modifier: Modifier) {
         startDestination = Destination.ListScreen.route,
         modifier = modifier,
     ) {
-        composable(Destination.ListScreen.route) {
-            ListScreen()
-        }
-        composable(Destination.ProfileScreen.route) {
-            ProfileScreen(
-                onNavigationToSecondScreen = { title ->
-                    navController.navigate(
-                        route = Destination.SecondScreen().route,
-                        args = bundleOf(Destination.SecondScreen().title to title)
-                    )
-                },
 
-                )
-        }
+        listGraph()
 
-        composable(
-            route = Destination.SecondScreen().route
-        ) { entry ->
-            val title = entry.parcelableData<String>(Destination.SecondScreen().title)
-            SecondScreen(title = title!!)
-        }
+        profileGraph(navController)
+
     }
 }

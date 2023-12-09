@@ -1,4 +1,4 @@
-package com.jetpack.compose.navigation
+package com.jetpack.compose.ui.main.component
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Column
@@ -10,12 +10,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
+import com.example.navigation.BottomNavItem
+import com.example.navigation.Destination
 
 @Composable
 fun BottomNavigationBar(
-    items: List<Destination>,
+    items: List<BottomNavItem>,
     currentScreenRoute: String?,
-    onItemClick: (Destination) -> Unit,
+    onItemClick: (BottomNavItem) -> Unit,
 ) {
     NavigationBar {
         items.forEach { item ->
