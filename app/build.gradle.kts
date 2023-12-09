@@ -51,8 +51,7 @@ android {
 
 dependencies {
 
-    implementation(project(":feature:profile"))
-    implementation(project(":feature:list"))
+    implementation(project(":library:navigation"))
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
