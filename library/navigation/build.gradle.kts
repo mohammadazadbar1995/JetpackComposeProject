@@ -44,7 +44,7 @@ dependencies {
 
     api (project(":feature:profile"))
     api (project(":feature:list"))
-    api ("androidx.navigation:navigation-compose:2.7.5")
+    api ("androidx.navigation:navigation-compose:2.7.6")
 
 
     testImplementation("junit:junit:4.13.2")
